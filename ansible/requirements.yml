@@ -1,0 +1,6 @@
+- src: geerlingguy.docker
+
+# - src: git@github.com:organizacao/repo_da_role.git
+#  version: "v1.2.0"
+#  scm: git
+#  name: repo_da_role
