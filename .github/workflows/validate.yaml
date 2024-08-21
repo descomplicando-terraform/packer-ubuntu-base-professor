@@ -1,0 +1,26 @@
+name: packer validation
+
+on:
+  pull_request:
+
+env:
+  PACKER_VERSION: "latest"
+
+jobs:
+  validation:
+    runs-on: ubuntu-latest
+    name: Run Packer Validation
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup `packer`
+        uses: hashicorp/setup-packer@main
+        with:
+          version: ${{ env.PACKER_VERSION }}
+
+      - name: Run `packer init`
+        run: "packer init ."
+
+      - name: Run `packer validate`
+        run: "packer validate ."
